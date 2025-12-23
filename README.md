@@ -78,6 +78,7 @@ The system is designed for **scalability, modularity, and responsible AI** princ
    cd llm-multi-agent-marking
 
 2. **Backend setup**
+
    cd backend
    python -m venv venv
    source venv/bin/activate # Linux / macOS
@@ -85,11 +86,13 @@ The system is designed for **scalability, modularity, and responsible AI** princ
    pip install -r requirements.txt
 
 3. **Frontend setup**
+
    cd frontend
    npm install
    npm run build
 
 4. **Environment Variables**
+
    FLASK_ENV=development
    DATABASE_URL=postgres://username:password@host:port/dbname
    REDIS_URL=redis://localhost:6379
@@ -99,6 +102,7 @@ The system is designed for **scalability, modularity, and responsible AI** princ
 ## Usage
 
 1. **Run backend API**
+
    cd backend
    flask run
 
@@ -107,6 +111,7 @@ The system is designed for **scalability, modularity, and responsible AI** princ
     gunicorn wsgi:app
 
 2. **Start Worker**
+
    cd backend
    rq worker default
 
@@ -115,12 +120,13 @@ The system is designed for **scalability, modularity, and responsible AI** princ
    - Either via Flask static files or npm start in frontend/
 
 4. **Submit Assignment**
+
    - Navigate to /submit
    - Upload PDF/DOCX
    - Choose workflow (e.g., full assessment or quick marking)
    - View results on dashboard
 
-# Deployment
+## Deployment
 
 - Frontend: Static web service or served via backend
 - Backend: Web service + Worker service (Render)
@@ -128,7 +134,7 @@ The system is designed for **scalability, modularity, and responsible AI** princ
 - Queue Broker: Redis (managed service)
 - File Storage: Cloud (S3 / Render storage)
 
-# Technologies
+## Technologies
 
 - Backend: Python, Flask, SQLAlchemy, RQ/Celery
 - Frontend: React, TypeScript
@@ -138,13 +144,13 @@ The system is designed for **scalability, modularity, and responsible AI** princ
 - Storage: Cloud object storage (S3/MinIO)
 - Deployment: Render / Docker
 
-# Future Enhancements
+## Future Enhancements
 
 - Add multi-lingual support for submissions
 - Integrate self-supervised feedback agents
 - Add real-time marking progress with websockets
 - Expand analytics dashboard for instructor insights
 
-# License
+## License
 
 MIT License © 2025 Divya Lamichhane
