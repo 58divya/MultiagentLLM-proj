@@ -74,10 +74,8 @@ The system is designed for **scalability, modularity, and responsible AI** princ
 
 1. **Clone the repository**
 
-```bash
-git clone https://github.com/your-username/llm-multi-agent-marking.git
-cd llm-multi-agent-marking
-```
+   git clone https://github.com/your-username/llm-multi-agent-marking.git
+   cd llm-multi-agent-marking
 
 2. **Backend setup**
    cd backend
@@ -92,12 +90,11 @@ cd llm-multi-agent-marking
    npm run build
 
 4. **Environment Variables**
-
-FLASK_ENV=development
-DATABASE_URL=postgres://username:password@host:port/dbname
-REDIS_URL=redis://localhost:6379
-OPENAI_API_KEY=your_openai_api_key
-VECTOR_DB_API_KEY=your_vector_db_key
+   FLASK_ENV=development
+   DATABASE_URL=postgres://username:password@host:port/dbname
+   REDIS_URL=redis://localhost:6379
+   OPENAI_API_KEY=your_openai_api_key
+   VECTOR_DB_API_KEY=your_vector_db_key
 
 ## Usage
 
@@ -107,4 +104,47 @@ VECTOR_DB_API_KEY=your_vector_db_key
 
 # or using gunicorn
 
-gunicorn wsgi:app
+    gunicorn wsgi:app
+
+2. **Start Worker**
+   cd backend
+   rq worker default
+
+3. **Serve Frontend**
+
+   - Either via Flask static files or npm start in frontend/
+
+4. **Submit Assignment**
+   - Navigate to /submit
+   - Upload PDF/DOCX
+   - Choose workflow (e.g., full assessment or quick marking)
+   - View results on dashboard
+
+# Deployment
+
+- Frontend: Static web service or served via backend
+- Backend: Web service + Worker service (Render)
+- Databases: Postgres & Vector DB (cloud-hosted)
+- Queue Broker: Redis (managed service)
+- File Storage: Cloud (S3 / Render storage)
+
+# Technologies
+
+- Backend: Python, Flask, SQLAlchemy, RQ/Celery
+- Frontend: React, TypeScript
+- Database: Postgres, Vector DB (Pinecone/Milvus/Weaviate)
+- Queue/Broker: Redis
+- AI/LLM: OpenAI GPT / local LLM models
+- Storage: Cloud object storage (S3/MinIO)
+- Deployment: Render / Docker
+
+# Future Enhancements
+
+- Add multi-lingual support for submissions
+- Integrate self-supervised feedback agents
+- Add real-time marking progress with websockets
+- Expand analytics dashboard for instructor insights
+
+# License
+
+MIT License © 2025 Divya Lamichhane
